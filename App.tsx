@@ -1,118 +1,46 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {UserProvider} from './src/user/Provider/UserProvider.tsx';
+import {NavigationContainer} from '@react-navigation/native';
+import {Loader} from './src/Pages/Loader/loader-page.tsx';
+import {OnBoards} from './src/Pages/OnBoards/onBoards-page.tsx';
+import {MainScreen} from './src/Pages/Home/main-screen.tsx';
+import {TipsOne} from './src/Pages/TipsDad/tips-dad-one.tsx';
+import {TipsTwo} from './src/Pages/TipsDad/tips-dad-two.tsx';
+import {HealthTips} from './src/Pages/TipsDad/health-tips.tsx';
+import {NotesPage} from './src/Pages/Notes/family-notes.tsx';
+import {AddNotes} from './src/Pages/Notes/add-notes.tsx';
+import {RemindersPage} from './src/Pages/Reminders/reminders-page.tsx';
+import {AddReminders} from './src/Pages/Reminders/add-reminders.tsx';
+import {Calendar} from './src/Pages/Clendar/calendar-page.tsx';
+import {SettingsUser} from './src/Pages/Settings/user-settings.tsx';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+const Stack = createStackNavigator();
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{headerShown: false, animationEnabled: false}}>
+          <Stack.Screen name="Loader" component={Loader} />
+          <Stack.Screen name="OnBoards" component={OnBoards} />
+          <Stack.Screen name="Home" component={MainScreen} />
+          <Stack.Screen name="TipsOne" component={TipsOne} />
+          <Stack.Screen name="TipsTwo" component={TipsTwo} />
+          <Stack.Screen name="HealthTips" component={HealthTips} />
+          <Stack.Screen name="Notes" component={NotesPage} />
+          <Stack.Screen name="AddNotes" component={AddNotes} />
+          <Stack.Screen name="Reminders" component={RemindersPage} />
+          <Stack.Screen name="AddReminders" component={AddReminders} />
+          <Stack.Screen name="Calendar" component={Calendar} />
+          <Stack.Screen name="SettingsUser" component={SettingsUser} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+// const styles = StyleSheet.create({});
 
 export default App;
