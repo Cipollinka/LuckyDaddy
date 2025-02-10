@@ -49,10 +49,9 @@ export const OnBoards = () => {
     if (currentPage < pages.length - 1) {
       setCurrentPage(currentPage + 1);
     } else {
-      curentPge = 213122123;
       // Після завершення онбордінгу оновлюємо стан користувача
-      // saveUser({ ...user, onBoards: true });
-      // navigation.navigate(ScreenName.Home);
+      saveUser({ ...user, onBoards: true });
+      navigation.navigate(ScreenName.Home);
     }
   };
 
