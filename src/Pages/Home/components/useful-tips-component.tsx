@@ -13,15 +13,15 @@ import {
 
 export const UsefulTipsComponent = () => {
   const navigation = useNavigation();
-  // const handleTipsOne = () => {
-  //   navigation.navigate(ScreenName.TipsOne);
-  // };
-  // const handleTipsTwo = () => {
-  //   navigation.navigate(ScreenName.TipsTwo);
-  // };
-  // const handleHealthTips = () => {
-  //   navigation.navigate(ScreenName.HealthTips);
-  // };
+  const handleTipsOne = () => {
+    navigation.navigate(ScreenName.TipsOne);
+  };
+  const handleTipsTwo = () => {
+    navigation.navigate(ScreenName.TipsTwo);
+  };
+  const handleHealthTips = () => {
+    navigation.navigate(ScreenName.HealthTips);
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Useful tips</Text>
@@ -32,7 +32,7 @@ export const UsefulTipsComponent = () => {
             source={require('../../../assets/images/button_tips_one.png')}>
             <SafeAreaView style={styles.buttons_footer}>
               <Text style={styles.paragraph}>5 tips for dad</Text>
-              <TouchableOpacity style={styles.open_button}>
+              <TouchableOpacity onPress={handleTipsOne} style={styles.open_button}>
                 <Text style={styles.open_text}>Open</Text>
               </TouchableOpacity>
             </SafeAreaView>
@@ -44,7 +44,7 @@ export const UsefulTipsComponent = () => {
             source={require('../../../assets/images/button_tips_two.png')}>
             <SafeAreaView style={styles.buttons_footer}>
               <Text style={styles.paragraph}>5 tips for dad</Text>
-              <TouchableOpacity style={styles.open_button}>
+              <TouchableOpacity onPress={handleTipsTwo} style={styles.open_button}>
                 <Text style={styles.open_text}>Open</Text>
               </TouchableOpacity>
             </SafeAreaView>
@@ -56,7 +56,7 @@ export const UsefulTipsComponent = () => {
             source={require('../../../assets/images/button_tips_three.png')}>
             <SafeAreaView style={styles.buttons_footer}>
               <Text style={styles.paragraph}>5 Health tips</Text>
-              <TouchableOpacity style={styles.open_button}>
+              <TouchableOpacity onPress={handleHealthTips} style={styles.open_button}>
                 <Text style={styles.open_text}>Open</Text>
               </TouchableOpacity>
             </SafeAreaView>
