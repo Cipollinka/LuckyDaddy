@@ -14,15 +14,15 @@ import {
 
 export const HomeComponent = () => {
   const navigation = useNavigation();
-  const handleNotes = () => {
-    navigation.navigate(ScreenName.Notes);
-  };
-  const handleReminders = () => {
-    navigation.navigate(ScreenName.Reminders);
-  };
-  const handleCalendar = () => {
-    navigation.navigate(ScreenName.Calendar);
-  };
+  // const handleNotes = () => {
+  //   navigation.navigate(ScreenName.Notes);
+  // };
+  // const handleReminders = () => {
+  //   navigation.navigate(ScreenName.Reminders);
+  // };
+  // const handleCalendar = () => {
+  //   navigation.navigate(ScreenName.Calendar);
+  // };
   const handleSettings = () => {
     navigation.navigate(ScreenName.SettingsUser);
   };
@@ -39,7 +39,7 @@ export const HomeComponent = () => {
       </SafeAreaView>
       <SafeAreaView style={styles.main}>
         <SafeAreaView style={{gap: 10}}>
-          <TouchableOpacity onPress={handleCalendar}>
+          <TouchableOpacity>
             <ImageBackground
               style={styles.image_calendar_reminders}
               source={require('../../../assets/images/card_calendar.png')}>
@@ -49,7 +49,7 @@ export const HomeComponent = () => {
               </Text>
             </ImageBackground>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleReminders}>
+          <TouchableOpacity>
             <ImageBackground
               style={styles.image_calendar_reminders}
               source={require('../../../assets/images/card_reminders.png')}>
@@ -60,7 +60,7 @@ export const HomeComponent = () => {
             </ImageBackground>
           </TouchableOpacity>
         </SafeAreaView>
-        <TouchableOpacity onPress={handleNotes}>
+        <TouchableOpacity>
           <ImageBackground
             style={styles.image_notes}
             source={require('../../../assets/images/card_notes.png')}>
